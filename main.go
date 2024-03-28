@@ -73,7 +73,7 @@ func main() {
 	// declare a var for the file name
 	var colorFlag string
 	// setting the flag
-	flag.StringVar(&colorFlag, "color", "white", "This is the color")
+	flag.StringVar(&colorFlag, "color", "default", "This is the color")
 
 	// parse the flag
 	flag.Parse()
@@ -175,6 +175,9 @@ func main() {
 				// check if asciiRep exists in the array of inputted string of chars to be colored
 				if contains(arrayOfLettersToBeColoredInASCII, asciiRep) {
 					fmt.Print(colorCode + linesFromFile[positionOfpointer] + "\x1b[0m")
+				} else if lettersToBeColored == "" {
+					fmt.Print(colorCode + linesFromFile[positionOfpointer] + "\x1b[0m")
+
 				} else {
 					// print out every line without a new line
 					fmt.Print(linesFromFile[positionOfpointer])
