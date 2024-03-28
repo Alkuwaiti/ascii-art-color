@@ -81,28 +81,41 @@ func main() {
 	// easy access to args
 	args := flag.Args()
 
-	if len(flag.Args()) != 3 {
-		fmt.Println("Not the right amount of arguments")
-		os.Exit(1)
+	var lettersToBeColored string
+
+	var inputString string
+
+	var typeOfAscii string
+
+	if len(flag.Args()) == 3 {
+		// string of characters to be colored from cmd
+		lettersToBeColored = args[0]
+
+		// Access the arg
+		inputString = args[1]
+
+		// getting the type
+		typeOfAscii = args[2]
+	} else if len(flag.Args()) == 2 {
+		// Access the arg
+		inputString = args[0]
+
+		// getting the type
+		typeOfAscii = args[1]
+	} else {
+		fmt.Println("Not the correct arguments")
+		fmt.Println("Usage: go run . --color=<color> <letters to be colored> something <Banner>")
+		fmt.Println("Usage: go run . --color=<color> something <Banner>")
 	}
 
 	// get the color code based on input
 	colorCode := getColorCode(colorFlag)
 
-	// string of characters to be colored from cmd
-	lettersToBeColored := args[0]
-
 	// turning the string to an array of ascii representation
 	arrayOfLettersToBeColoredInASCII := stringToASCII(lettersToBeColored)
 
-	// Access the arg
-	inputString := args[1]
-
 	// Replace the escape sequence "\n" with an actual newline character
 	inputString = strings.ReplaceAll(inputString, "\\n", "\n")
-
-	// getting the type
-	typeOfAscii := args[2]
 
 	// trim and to lower
 	typeOfAscii = strings.Trim(typeOfAscii, "")
