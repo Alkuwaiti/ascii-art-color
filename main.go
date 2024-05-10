@@ -22,10 +22,26 @@ func getColorCode(color string) string {
 		return "\x1b[34m" // Blue
 	case "magenta":
 		return "\x1b[35m" // Magenta
+	case "pink":
+		return "\x1b[35m" // Pink
 	case "cyan":
 		return "\x1b[36m" // Cyan
 	case "white":
 		return "\x1b[37m" // White
+	case "brightRed":
+		return "\x1b[91m" // Bright Red
+	case "brightGreen":
+		return "\x1b[92m" // Bright Green
+	case "brightYellow":
+		return "\x1b[93m" // Bright Yellow
+	case "brightBlue":
+		return "\x1b[94m" // Bright Blue
+	case "brightMagenta":
+		return "\x1b[95m" // Bright Magenta
+	case "brightCyan":
+		return "\x1b[96m" // Bright Cyan
+	case "brightWhite":
+		return "\x1b[97m" // Bright White
 	default:
 		return "" // Unknown color, return empty string
 	}
